@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>sqrt(2)：一个写不完的长度 - Zero to Tensor</title>
+  <style>
+    body {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      color: #1f2937;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.75;
+      background: #f8fafc;
+    }
+
+    h1 {
+      font-size: 34px;
+      line-height: 1.25;
+    }
+
+    h2 {
+      margin-top: 36px;
+      border-bottom: 1px solid #e5e7eb;
+      padding-bottom: 8px;
+    }
+
+    a {
+      color: #2563eb;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    pre {
+      overflow-x: auto;
+      border-radius: 8px;
+      padding: 16px;
+      background: #111827;
+      color: #f9fafb;
+    }
+
+    code {
+      border-radius: 4px;
+      padding: 2px 5px;
+      background: #e5e7eb;
+    }
+
+    pre code {
+      padding: 0;
+      background: transparent;
+    }
+
+    .back {
+      display: inline-block;
+      margin-bottom: 24px;
+    }
+  </style>
+</head>
+<body>
+  <a class="back" href="../index.html">返回首页</a>
+
+  <h1>sqrt(2)：一个写不完的长度</h1>
+
+  <h2>1. 原文抄写</h2>
+  <p>直角三角形两条直角边的平方和，等于斜边的平方。</p>
+  <p>如果一个等腰直角三角形的两条直角边都是 1，那么它的斜边长度满足：</p>
+  <pre><code>c^2 = 1^2 + 1^2 = 2
+c = sqrt(2)</code></pre>
+
+  <h2>2. 我当时没懂什么</h2>
+  <p>我以前会把 <code>sqrt(2)</code> 理解成 <code>1.414</code>，或者更长一点的 <code>1.41421356...</code>。</p>
+  <p>但这里真正奇怪的地方是：一个那么简单的图形，一条那么确定的线段，为什么它的长度不能被一个有限小数完整写出来？</p>
+  <p>如果线段就在那里，它不是应该有一个“准确的数字”吗？</p>
+
+  <h2>3. 我突然通了什么</h2>
+  <p>让我震撼的点不是 <code>sqrt(2)</code> 很复杂，而是：</p>
+  <p><strong>几何里的确定长度，不一定能被十进制有限表达装下。</strong></p>
+  <p>那条斜边没有变模糊，也没有变成近似值。它一直是一个确定的长度。</p>
+  <p>真正有限的是我们的表达方式。</p>
+  <p><code>1.414</code> 不是 <code>sqrt(2)</code> 本身，只是我们用十进制小数追上它时，暂时追到的位置。</p>
+
+  <h2>4. 我用自己的话重说一遍</h2>
+  <p>边长为 1 的等腰直角三角形，斜边就是 <code>sqrt(2)</code>。</p>
+  <p>它不是“差不多等于 1.414”，而是一个精确存在、但无法写成有限小数的长度。</p>
+  <p>所以 <code>sqrt(2)</code> 的反直觉不在于它遥远，而在于它来自一个极其简单的图形。</p>
+  <p>一个最简单的直角三角形，竟然能把我们带到无限不循环的小数世界。</p>
+
+  <h2>5. 和 AI 的连接</h2>
+  <p>这个概念以后会连接到很多 AI 里的基础直觉：</p>
+  <ul>
+    <li>距离：两个点之间有多远</li>
+    <li>向量长度：一个向量本身的大小</li>
+    <li>范数：用统一方式度量长度</li>
+    <li>高维空间：不只二维三角形，也可以是上百维、上千维空间</li>
+    <li>embedding 相似度：词、图片、用户都可能变成空间里的点</li>
+  </ul>
+  <p>如果二维空间里两条长度为 1 的边能产生 <code>sqrt(2)</code>，那么高维空间里的距离就更不应该只靠日常直觉理解。</p>
+  <p>AI 里的很多概念，本质上都在问：</p>
+  <pre><code>这些东西在某个空间里有多远？方向像不像？长度代表什么？</code></pre>
+
+  <h2>6. 一句话自测</h2>
+  <p><code>sqrt(2)</code> 的震撼点不是它的小数很长，而是一个简单、确定的几何长度无法被有限小数完整表达。</p>
+
+  <h2>7. Python 实验</h2>
+  <p>完整代码见：<a href="https://github.com/cynthiaCh/zero-to-tensor/blob/main/experiments/sqrt2_triangle.py">experiments/sqrt2_triangle.py</a></p>
+  <p>这个实验会画出两条直角边为 1 的等腰直角三角形，并标出斜边 <code>sqrt(2)</code>。</p>
+</body>
+</html>
+
