@@ -16,13 +16,14 @@
 ## 文章
 
 - [sqrt(2)：一个写不完的长度](notes/sqrt2.md)
+- [指数分布：为什么“第 1 分钟”看起来最危险](notes/exponential-waiting-time.md)
 
 ## 实验代码
 
 - [`experiments/sqrt2_triangle.py`](../experiments/sqrt2_triangle.py)
+- [`experiments/exponential_waiting_time.py`](../experiments/exponential_waiting_time.py)
 - [`experiments/tanh.py`](../experiments/tanh.py)
 
 ## 快速记录
 
 有些顿悟很短，先放进 [`sparks/sudden-insights.md`](../sparks/sudden-insights.md)，以后再扩写成完整文章。
-

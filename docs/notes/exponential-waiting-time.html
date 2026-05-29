@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>指数分布：为什么“第 1 分钟”看起来最危险 - Zero to Tensor</title>
+  <style>
+    body {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      color: #1f2937;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.75;
+      background: #f8fafc;
+    }
+
+    h1 {
+      font-size: 34px;
+      line-height: 1.25;
+    }
+
+    h2 {
+      margin-top: 36px;
+      border-bottom: 1px solid #e5e7eb;
+      padding-bottom: 8px;
+    }
+
+    a {
+      color: #2563eb;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    pre {
+      overflow-x: auto;
+      border-radius: 8px;
+      padding: 16px;
+      background: #111827;
+      color: #f9fafb;
+    }
+
+    code {
+      border-radius: 4px;
+      padding: 2px 5px;
+      background: #e5e7eb;
+    }
+
+    pre code {
+      padding: 0;
+      background: transparent;
+    }
+
+    .back {
+      display: inline-block;
+      margin-bottom: 24px;
+    }
+  </style>
+</head>
+<body>
+  <a class="back" href="../index.html">返回首页</a>
+
+  <h1>指数分布：为什么“第 1 分钟”看起来最危险</h1>
+
+  <h2>1. 原文抄写</h2>
+  <p>如果某类事件平均每小时发生 1 次，并且事件之间相互独立，那么“等待下一次事件发生的时间”常常可以用指数分布描述。</p>
+  <p>指数分布的概率密度可以写成：</p>
+  <pre><code>f(t) = lambda * e^(-lambda * t)</code></pre>
+  <p>其中 <code>t</code> 是从现在开始等待的时间，<code>lambda</code> 是单位时间内平均发生次数。</p>
+
+  <h2>2. 我当时没懂什么</h2>
+  <p>最反直觉的地方是：如果平均 1 小时发生 1 次交通事故，为什么“从现在开始的第 1 分钟”反而是概率最大的？</p>
+  <p>直觉上我会觉得，既然平均 1 小时发生 1 次，那它是不是更应该在接近 1 小时的时候发生？但指数分布不是这样。</p>
+
+  <h2>3. 先把问题说准确</h2>
+  <p>这里有一个非常容易混淆的点：</p>
+  <p><strong>不是说每天钟表上的第 1 分钟比第 30 分钟更容易发生交通事故。</strong></p>
+  <p>如果交通事故可以近似看成一个稳定的随机过程，那么从钟表时间看，每一分钟的事故概率可以是一样的。</p>
+  <p>指数分布真正描述的是：</p>
+  <pre><code>从现在这一刻开始，我还要等多久，才会等到下一次事故？</code></pre>
+
+  <h2>4. 我突然通了什么</h2>
+  <p>我以前把“平均 1 小时发生 1 次”理解成：事件应该差不多在 1 小时附近发生。</p>
+  <p>但指数分布里的“平均”不是“最常见”。</p>
+  <p>它的意思更接近：有些时候很快发生，有些时候等很久也不发生，很多次平均下来是 1 小时。</p>
+  <p>第 1 分钟概率最大，是因为我们从现在开始等待。越往后还没发生，就必须先经历“前面一直没发生”这个条件。</p>
+  <pre><code>第 10 分钟发生：前 9 分钟都没发生，然后第 10 分钟发生。
+第 50 分钟发生：前 49 分钟都没发生，然后第 50 分钟发生。</code></pre>
+
+  <h2>5. 我用自己的话重说一遍</h2>
+  <p>指数分布不是在说“事故喜欢发生在一天的开头”。</p>
+  <p><strong>如果我从现在开始等下一次随机事件，那么最可能的等待时间其实是很短的时间。</strong></p>
+  <p>但是短时间发生的概率虽然最大，并不代表它一定会很快发生。</p>
+  <p>比如平均每小时 1 次时，前 1 分钟发生的概率大约是：</p>
+  <pre><code>1 - e^(-1/60) ≈ 1.65%</code></pre>
+  <p>这个数字并不大。它只是比“第 2 分钟才发生”“第 3 分钟才发生”等同样长度的等待区间更大一点。</p>
+
+  <h2>6. 和 AI 的连接</h2>
+  <ul>
+    <li>概率密度：最高的点不一定代表“大概率会发生”</li>
+    <li>随机过程：事件不是均匀排队出现的</li>
+    <li>采样：平均值和最常见值可以完全不是一回事</li>
+    <li>损失分布：一个指标的平均值可能掩盖很多极端情况</li>
+    <li>生成模型：模型输出的是分布，不是一个固定答案</li>
+  </ul>
+  <p>它提醒我：看到“平均”时，不能立刻脑补成“典型情况”。</p>
+
+  <h2>7. 一句话自测</h2>
+  <p>指数分布的反直觉点是：从现在开始等待下一次随机事件时，最短的等待时间密度最高，但这不等于事件一定很快发生，也不等于钟表上的第 1 分钟更危险。</p>
+
+  <h2>8. Python 实验</h2>
+  <p>完整代码见：<a href="https://github.com/cynthiaCh/zero-to-tensor/blob/main/experiments/exponential_waiting_time.py">experiments/exponential_waiting_time.py</a></p>
+</body>
+</html>
+

@@ -54,4 +54,4 @@ zero-to-tensor/
 ## 当前内容
 
 - [sqrt(2)：一个写不完的长度](docs/notes/sqrt2.md)
-
+- [指数分布：为什么“第 1 分钟”看起来最危险](docs/notes/exponential-waiting-time.md)
