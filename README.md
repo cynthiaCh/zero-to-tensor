@@ -31,7 +31,13 @@ zero-to-tensor/
 │   └── assets/
 │       └── images/
 ├── experiments/
+│   ├── assets/
+│   │   └── resnet/
+│   ├── browser_sentiment/
+│   ├── explain_resnet_layers.py
+│   ├── run_resnet_pytorch.py
 │   ├── tanh.py
+│   ├── train_resnet_custom.py
 │   └── sqrt2_triangle.py
 ├── notebooks/
 ├── questions/
@@ -55,3 +61,6 @@ zero-to-tensor/
 
 - [sqrt(2)：一个写不完的长度](docs/notes/sqrt2.md)
 - [指数分布：为什么“第 1 分钟”看起来最危险](docs/notes/exponential-waiting-time.md)
+- ResNet 图像分类推理与层结构解释：`experiments/run_resnet_pytorch.py`、`experiments/explain_resnet_layers.py`
+- ResNet 自定义 ImageFolder 数据集训练：`experiments/train_resnet_custom.py`
+- 浏览器情感分析历史草稿：`experiments/browser_sentiment/`
