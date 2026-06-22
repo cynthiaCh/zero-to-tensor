@@ -13,7 +13,7 @@ GitHub Pages 可以直接使用 `docs/` 目录发布：
 - 图片：`docs/assets/images/`
 
 启用方式：
-
+.venv/bin/python
 1. 打开 GitHub 仓库的 `Settings`
 2. 进入 `Pages`
 3. Source 选择 `Deploy from a branch`
