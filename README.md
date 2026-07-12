@@ -65,3 +65,4 @@ zero-to-tensor/
 - ResNet 自定义 ImageFolder 数据集训练：`experiments/train_resnet_custom.py`
 - 浏览器情感分析历史草稿：`experiments/browser_sentiment/`
 - RNN 按时间步前向传播手算演示：`experiments/rnn_step_by_step.py`
+- Transformer Attention 加权平均手算演示：`experiments/attention_weighted_average.py`
