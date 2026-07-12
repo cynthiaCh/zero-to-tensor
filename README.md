@@ -67,3 +67,4 @@ zero-to-tensor/
 - RNN 按时间步前向传播手算演示：`experiments/rnn_step_by_step.py`
 - Transformer Attention 加权平均手算演示：`experiments/attention_weighted_average.py`
 - Auto-Regressive 逐 token 生成演示：`experiments/autoregressive_generation.py`
+- Transformer position-wise Feed-Forward 演示：`experiments/transformer_feed_forward.py`
